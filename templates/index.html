@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collect Bill - Money Transfer Receipts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Money Transfer Receipt Collector</h1>
+        <nav><a href="/admin">Dashboard</a></nav>
+    </header>
+    <main>
+        <section id="receipt-form">
+            <h2>Submit Receipt</h2>
+            <form id="receiptForm">
+                <label for="projectSelect">Project:</label>
+                <select id="projectSelect" required>
+                    <option value="">Select Project</option>
+                </select><br>
+
+                <label for="roomSelect">Room Number:</label>
+                <select id="roomSelect" required>
+                    <option value="">Select Room</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+
+                <label for="studyLevel">Level:</label>
+                <select id="studyLevel" required>
+                    <option value="">Select Level</option>
+                    <option value="M1">M1</option>
+                    <option value="M2">M2</option>
+                    <option value="M3">M3</option>
+                    <option value="M4">M4</option>
+                    <option value="M5">M5</option>
+                    <option value="M6">M6</option>
+                </select><br>
+
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" required><br>
+
+                <label for="amount">Transfer Amount:</label>
+                <input type="number" id="amount" step="0.01" required><br>
+
+                <label for="transferDate">Transfer Date:</label>
+                <input type="text" id="transferDate" placeholder="dd/mm/yyyy" required><br>
+
+                <label for="receiptImage">Receipt Image:</label>
+                <input type="file" id="receiptImage" accept="image/*" capture="environment" required><br>
+                <img id="imagePreview" alt="Image Preview" style="max-width: 200px; max-height: 200px;"><br>
+
+                <label for="notes">Notes:</label>
+                <textarea id="notes"></textarea><br>
+
+                <button type="submit">Upload Receipt</button>
+            </form>
+            <div id="successMessage" style="display:none; background:green; color:white; padding:10px; margin-top:10px;"></div>
+        </section>
+
+        <section id="receipts-list">
+            <h2>Submitted Receipts</h2>
+            <ul id="receipts"></ul>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
